@@ -16,7 +16,7 @@
         </div>
         <div
           id='textPerm'
-          class='text-primary ease-bezier translate-y-full duration-500 transition-transform delay-1000'
+          class='text-primary ease-bezier translate-y-full transition-transform delay-1000 duration-500'
           aria-hidden='true'
         >
           IT&apos;S LIFE.
@@ -28,14 +28,6 @@
 </section>
 
 <script>
-  import { $ } from '@/lib/dom-selector'
-
-  const textCrossed = $('#textCrossed') as HTMLElement
-  const textCrossedSpan = $('div', textCrossed)
-  const textPerm = $('#textPerm')
-  document.addEventListener('DOMContentLoaded', () => {
-    textCrossed?.classList.add('before:scale-x-100')
-    textCrossedSpan?.classList.remove('translate-y-full')
-    textPerm?.classList.remove('translate-y-full')
-  })
+  import { initHeroAnimation } from '@/animations/heroAnimations'
+  document.addEventListener('DOMContentLoaded', initHeroAnimation)
 </script>
