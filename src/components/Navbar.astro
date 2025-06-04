@@ -4,15 +4,16 @@ import { navLinks } from '@/data/site-data'
 
 <nav id='nav' class='relative -z-10 lg:z-auto'>
   <ul
-    class='bg-gray invisible fixed inset-0 flex -translate-y-full flex-col items-center justify-center gap-6 border border-white/10 px-8 py-2 text-3xl transition-colors duration-300 hover:border-transparent lg:visible lg:static lg:translate-y-0 lg:flex-row lg:gap-0 lg:rounded-full lg:text-xl lg:hover:bg-transparent ease-bezier'
+    id='navList'
+    class='bg-gray ease-bezier invisible fixed inset-0 flex -translate-y-full flex-col items-center justify-center gap-6 border border-white/10 px-8 py-2 text-3xl transition-colors duration-300 hover:border-transparent lg:visible lg:static lg:translate-y-0 lg:flex-row lg:gap-0 lg:rounded-full lg:text-xl lg:hover:bg-transparent'
   >
     {
       navLinks.map((navLink, i) => {
         const { text, link } = navLink
         return (
-          <li>
+          <li class='overflow-hidden'>
             <a
-              class='hover:text-primary inline-block hover:bg-gray rounded-full border border-transparent px-8 py-2 font-bold uppercase transition-colors duration-300 hover:border-white/10'
+              class='hover:text-primary hover:bg-gray ease-bezier inline-block translate-y-[150%] rounded-full border border-transparent px-8 py-2 font-bold uppercase transition duration-300 hover:border-white/10'
               href={link}
             >
               {text}
@@ -25,7 +26,7 @@ import { navLinks } from '@/data/site-data'
 </nav>
 
 <style>
-  #nav > ul {
+  #navList {
     transition:
       opacity 200ms 100ms,
       translate 300ms,
@@ -40,5 +41,21 @@ import { navLinks } from '@/data/site-data'
     translate: 0 0;
     opacity: 1;
     visibility: visible;
+
+    & > li > a {
+      translate: 0 0;
+    }
   }
 </style>
+
+<script>
+  import { $ } from '@/lib/dom-selector'
+  import { applyCumulativeTransitionDelay } from '@/lib/utils'
+
+  const navList = $('#navList') as HTMLElement
+  const links = Array.from(navList.children).map(
+    (child) => child.children[0],
+  ) as HTMLElement[]
+
+  applyCumulativeTransitionDelay({ items: links, delayPattern: 0.1, start: .3 })
+</script>
