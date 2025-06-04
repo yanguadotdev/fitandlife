@@ -1,0 +1,79 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import Analytics from '@vercel/analytics/astro'
+import '@/styles/global.css'
+
+interface Props {
+  title: string
+  description?: string
+  canonical?: string
+  robots?: string
+}
+
+const { title, description = 'Description of landing page', canonical, robots } = Astro.props
+---
+
+<!doctype html>
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width' />
+    <title>{title}</title>
+
+    <link rel='icon' type='image/svg+xml' href='/favicon.svg' />
+
+    <!-- Preload fonts so that the font change is not visible when the page loads -->
+    <link
+      rel='preload'
+      href='/fonts/Inter-variable.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
+    <link
+      rel='preload'
+      href='/fonts/Antonio-SemiBold.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
+    <link
+      rel='preload'
+      href='/fonts/Antonio-Bold.woff2'
+      as='font'
+      type='font/woff2'
+      crossorigin='anonymous'
+    />
+
+    <meta name='description' content={description} />
+    {canonical && <link rel='canonical' href={canonical} />}
+    {robots && <meta name='robots' content={robots} />}
+
+    <!-- Open Graph / Facebook -->
+    <!-- <meta property='og:url' content='https://www.fitandlife.com' /> -->
+    <meta property='og:type' content='website' />
+    <meta property='og:title' content="FIT&LIFE - It's Not Fitness, It's Life" />
+    <meta
+      property='og:description'
+      content='Transform your body and mind with a personalized fitness experience. Start your journey today with FIT&LIFE.'
+    />
+    <!-- <meta property='og:image' content='https://www.fitandlife.com/og.jpg' /> -->
+    <meta property='og:locale' content='en_US' />
+    <meta property='og:site_name' content='FIT&LIFE' />
+
+    <!-- Twitter -->
+    <meta name='twitter:card' content='summary_large_image' />
+    <meta name='twitter:title' content="FIT&LIFE - It's Not Fitness, It's Life" />
+    <meta
+      name='twitter:description'
+      content='Transform your body and mind with a personalized fitness experience. Start your journey today with FIT&LIFE.'
+    />
+    <!-- <meta name='twitter:image' content='https://www.fitandlife.com/og.jpg' /> -->
+
+    <ClientRouter />
+    <Analytics />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

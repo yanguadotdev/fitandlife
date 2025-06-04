@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+@theme inline {
+  --font-fallback:
+    'Adjusted Arial Fallback', system-ui, -apple-system, blinkmacsystemfont, 'Segoe UI',
+    'Noto Sans', helvetica, arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji';
+  --font-primary: 'Inter';
+  --font-secondary: 'Antonio';
+
+  --color-primary: #ff5300;
+  --color-gray: #1b1b1b;
+
+  --ease-bezier: cubic-bezier(0.9, 0.1, 0.1, 0.9);
+}
+
+@layer base {
+  /* Webkit Browsers (Chrome, Safari, Edge) */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background:;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color:;
+    border-radius: 5px;
+    border: 2px solid oklch(67.65% 0.1539 329.18 / 0.4);
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background-color:;
+    /* Efecto hover */
+  }
+
+  /* Firefox */
+  * {
+    scrollbar-color:;
+    scrollbar-width: thin;
+  }
+}
+
+@layer components {
+  .container {
+    @apply mx-auto px-6;
+  }
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('/fonts/Inter-variable.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Antonio';
+  src: url('/fonts/Antonio-SemiBold.woff2') format('woff2');
+  font-weight: 600;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Antonio';
+  src: url('/fonts/Antonio-Bold.woff2') format('woff2');
+  font-weight: 500;
+  font-display: swap;
+}
+
+:root {
+  color-scheme: light dark;
+}
+
+button {
+  cursor: pointer;
+}
+
+html {
+  font-family: 'Inter', var(--font-fallback);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@utility mask-fade-bottom {
+  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+}
