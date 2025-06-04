@@ -74,11 +74,12 @@ button {
   cursor: pointer;
 }
 
-html {
+html,body {
   font-family: 'Inter', var(--font-fallback);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  @apply bg-black;
 }
 
 @utility mask-fade-bottom {

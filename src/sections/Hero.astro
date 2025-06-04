@@ -1,0 +1,41 @@
+<section id='hero'>
+  <div class='container max-w-7xl'>
+    <header class='pt-24 text-center'>
+      <h1
+        class='font-secondary overflow-hidden text-9xl leading-none'
+        aria-label="It's not fitness, It's life"
+      >
+        <div
+          aria-hidden='true'
+          id='textCrossed'
+          class='ease-bezier relative overflow-hidden transition-transform duration-500 before:absolute before:left-0 before:top-1/2 before:h-4 before:w-full before:origin-left before:-translate-y-1/2 before:scale-x-0 before:bg-black before:transition-transform before:delay-500 before:duration-1000'
+        >
+          <div class='translate-y-full transition-transform duration-500'>
+            IT&apos;S NOT FITNESS
+          </div>
+        </div>
+        <div
+          id='textPerm'
+          class='text-primary ease-bezier translate-y-full duration-500 transition-transform delay-1000'
+          aria-hidden='true'
+        >
+          IT&apos;S LIFE.
+        </div>
+      </h1>
+    </header>
+    <figure></figure>
+  </div>
+</section>
+
+<script>
+  import { $ } from '@/lib/dom-selector'
+
+  const textCrossed = $('#textCrossed') as HTMLElement
+  const textCrossedSpan = $('div', textCrossed)
+  const textPerm = $('#textPerm')
+  document.addEventListener('DOMContentLoaded', () => {
+    textCrossed?.classList.add('before:scale-x-100')
+    textCrossedSpan?.classList.remove('translate-y-full')
+    textPerm?.classList.remove('translate-y-full')
+  })
+</script>
