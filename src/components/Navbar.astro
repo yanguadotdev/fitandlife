@@ -13,7 +13,7 @@ import { navLinks } from '@/data/site-data'
         return (
           <li class='overflow-hidden'>
             <a
-              class='hover:text-primary hover:bg-gray ease-bezier inline-block translate-y-[150%] rounded-full border border-transparent px-8 py-2 font-bold uppercase transition duration-300 hover:border-white/10'
+              class='hover:text-primary hover:bg-gray ease-bezier inline-block translate-y-[150%] rounded-full border border-transparent px-8 py-2 font-bold uppercase transition duration-300 hover:border-white/10 lg:translate-y-0'
               href={link}
             >
               {text}
@@ -47,15 +47,3 @@ import { navLinks } from '@/data/site-data'
     }
   }
 </style>
-
-<script>
-  import { $ } from '@/lib/dom-selector'
-  import { applyCumulativeTransitionDelay } from '@/lib/utils'
-
-  const navList = $('#navList') as HTMLElement
-  const links = Array.from(navList.children).map(
-    (child) => child.children[0],
-  ) as HTMLElement[]
-
-  applyCumulativeTransitionDelay({ items: links, delayPattern: 0.1, start: .3 })
-</script>
