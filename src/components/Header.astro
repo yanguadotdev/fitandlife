@@ -1,5 +1,5 @@
 ---
-import { navLinks } from '@/data/site-data'
+import Navbar from './Navbar.astro'
 ---
 
 <header id='header' class='mt-12'>
@@ -10,27 +10,7 @@ import { navLinks } from '@/data/site-data'
       FIT<span class='text-primary'>&</span>LIFE
     </div>
 
-    <nav id='nav' class='relative -z-10 lg:z-auto'>
-      <ul
-        class='bg-gray fixed inset-0 flex flex-col items-center justify-center gap-6 border border-white/10 px-8 py-2 text-3xl transition-colors duration-300 hover:border-transparent lg:static lg:flex-row lg:gap-0 lg:rounded-full lg:text-xl lg:hover:bg-transparent'
-      >
-        {
-          navLinks.map((navLink, i) => {
-            const { text, link } = navLink
-            return (
-              <li>
-                <a
-                  class='hover:text-primary hover:bg-gray rounded-full border border-transparent px-8 py-2 font-bold uppercase transition-colors duration-300 hover:border-white/10'
-                  href={link}
-                >
-                  {text}
-                </a>
-              </li>
-            )
-          })
-        }
-      </ul>
-    </nav>
+    <Navbar />
 
     <div class='ml-auto lg:m-0 lg:h-8 lg:w-24'>
       <button
