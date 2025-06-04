@@ -37,7 +37,7 @@ import Navbar from './Navbar.astro'
 
 <script>
   import { $ } from '@/lib/dom-selector'
-  import { applyCumulativeTransitionDelay } from '@/lib/utils'
+  import { applyCumulativeTransitionDelay, removeInlineStyles } from '@/lib/utils'
 
   const menuBtn = $('#menuBtn') as HTMLButtonElement
   const nav = $('#nav') as HTMLElement
@@ -47,17 +47,18 @@ import Navbar from './Navbar.astro'
     (child) => child.children[0],
   ) as HTMLElement[]
 
-  const removeDelays = (items: HTMLElement[]) => {
-    items.forEach((item) => {
-      item.style.transitionDelay = '0s'
-    })
+  const closeMenu = () => {
+    nav.classList.remove('open')
+    menuBtn.setAttribute('aria-expanded', 'false')
+    menuBtn.textContent = 'MENU'
+    body.classList.remove('overflow-hidden')
   }
 
   links[links.length - 1].addEventListener(
     'transitionend',
     (e: TransitionEvent) => {
       if (e.propertyName === 'translate') {
-        removeDelays(links)
+        removeInlineStyles(links, 'transitionDelay', 'transitionDuration')
       }
     },
   )
@@ -69,12 +70,14 @@ import Navbar from './Navbar.astro'
     const isOpen = nav.classList.toggle('open')
     menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
     menuBtn.textContent = isOpen ? 'CLOSE' : 'MENU'
+    body.classList.toggle('overflow-hidden', isOpen) // scroll lock while menu is open
 
     isOpen &&
       applyCumulativeTransitionDelay({
         items: links,
         delayPattern: 0.1,
         start: 0.3,
+        duration: .5
       })
   })
 
@@ -83,10 +86,7 @@ import Navbar from './Navbar.astro'
     if (e.key === 'Escape') {
       const isOpen = nav?.classList.contains('open')
       if (isOpen) {
-        nav.classList.remove('open')
-        menuBtn.setAttribute('aria-expanded', 'false')
-        menuBtn.textContent = 'MENU'
-        body.classList.remove('overflow-hidden')
+        closeMenu()
       }
     }
   })
@@ -103,16 +103,7 @@ import Navbar from './Navbar.astro'
         nav?.classList.contains('open')) ||
       isClickOnLink
     ) {
-      nav.classList.remove('open')
-      menuBtn.setAttribute('aria-expanded', 'false')
-      menuBtn.textContent = 'MENU'
-      body.classList.remove('overflow-hidden')
+      closeMenu()
     }
-  })
-
-  // prevent scroll while menu is open (scroll lock)
-  menuBtn?.addEventListener('click', () => {
-    const isOpen = nav.classList.contains('open')
-    body.classList.toggle('overflow-hidden', isOpen)
   })
 </script>
