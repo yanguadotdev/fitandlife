@@ -11,6 +11,8 @@
   --color-gray: #1b1b1b;
 
   --ease-bezier: cubic-bezier(0.9, 0.1, 0.1, 0.9);
+
+  --text-big: clamp(2rem, 10vw, 10rem);
 }
 
 @layer base {

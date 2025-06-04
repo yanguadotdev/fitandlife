@@ -1,8 +1,8 @@
 <section id='hero'>
-  <div class='container max-w-7xl'>
-    <header class='pt-24 text-center'>
+  <div>
+    <header class='container max-w-7xl pt-24 text-center relative'>
       <h1
-        class='font-secondary overflow-hidden text-9xl leading-none'
+        class='font-secondary overflow-hidden text-big leading-none'
         aria-label="It's not fitness, It's life"
       >
         <div
@@ -23,11 +23,27 @@
         </div>
       </h1>
     </header>
-    <figure></figure>
+
+    <figure class='-mt-16 max-w-7xl mx-auto'>
+      <video
+        src='/videos/hero.webm'
+        autoplay
+        muted
+        loop
+        playsinline
+        class='aspect-video shadow-lg'
+      >
+        Your browser does not support the video tag.
+      </video>
+      <!-- opcional -->
+      <figcaption class='mt-2 text-center text-sm text-white/40'>
+        A short video showing our core philosophy in motion.
+      </figcaption>
+    </figure>
   </div>
 </section>
 
 <script>
   import { initHeroAnimation } from '@/animations/heroAnimations'
-  document.addEventListener('DOMContentLoaded', initHeroAnimation)
+  initHeroAnimation()
 </script>
