@@ -25,10 +25,65 @@ import Navbar from './Navbar.astro'
     <!-- BUTTON MOBILE -->
     <div>
       <button
-        id='menuButton'
+        aria-controls='mobile-menu'
+        aria-expanded='false'
+        id='menuBtn'
         class='hover:text-primary p-2 text-xl underline transition-colors lg:hidden'
         >MENU</button
       >
     </div>
   </div>
 </header>
+
+<script>
+  import { $ } from '@/lib/dom-selector'
+
+  const menuBtn = $('#menuBtn') as HTMLButtonElement
+  const nav = $('#nav') as HTMLElement
+  const header = $('#header') as HTMLElement
+  const body = document.body
+
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = nav.classList.toggle('open')
+    menuBtn.setAttribute('aria-expanded', isOpen ? 'true' : 'false')
+    menuBtn.textContent = isOpen ? 'CLOSE' : 'MENU'
+  })
+
+  // Optional but recommended for good UX
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const isOpen = nav?.classList.contains('open')
+      if (isOpen) {
+        nav.classList.remove('open')
+        menuBtn.setAttribute('aria-expanded', 'false')
+        menuBtn.textContent = 'MENU'
+        body.classList.remove('overflow-hidden')
+      }
+    }
+  })
+
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement
+    const isClickInsideMenu = header.contains(target)
+    const isClickOnBtn = menuBtn.contains(target)
+    const isClickOnLink = nav.contains(target) && target.closest('a')
+
+    if (
+      (!isClickInsideMenu &&
+        !isClickOnBtn &&
+        nav?.classList.contains('open')) ||
+      isClickOnLink
+    ) {
+      nav.classList.remove('open')
+      menuBtn.setAttribute('aria-expanded', 'false')
+      menuBtn.textContent = 'MENU'
+      body.classList.remove('overflow-hidden')
+    }
+  })
+
+  // prevent scroll while menu is open (scroll lock)
+  menuBtn?.addEventListener('click', () => {
+    const isOpen = nav.classList.contains('open')
+    body.classList.toggle('overflow-hidden', isOpen)
+  })
+</script>

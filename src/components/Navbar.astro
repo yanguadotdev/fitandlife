@@ -4,7 +4,7 @@ import { navLinks } from '@/data/site-data'
 
 <nav id='nav' class='relative -z-10 lg:z-auto'>
   <ul
-    class='bg-gray fixed inset-0 flex flex-col items-center justify-center gap-6 border border-white/10 px-8 py-2 text-3xl transition-colors duration-300 hover:border-transparent lg:static lg:flex-row lg:gap-0 lg:rounded-full lg:text-xl lg:hover:bg-transparent'
+    class='bg-gray invisible fixed inset-0 flex -translate-y-full flex-col items-center justify-center gap-6 border border-white/10 px-8 py-2 text-3xl transition-colors duration-300 hover:border-transparent lg:visible lg:static lg:translate-y-0 lg:flex-row lg:gap-0 lg:rounded-full lg:text-xl lg:hover:bg-transparent ease-bezier'
   >
     {
       navLinks.map((navLink, i) => {
@@ -12,7 +12,7 @@ import { navLinks } from '@/data/site-data'
         return (
           <li>
             <a
-              class='hover:text-primary hover:bg-gray rounded-full border border-transparent px-8 py-2 font-bold uppercase transition-colors duration-300 hover:border-white/10'
+              class='hover:text-primary inline-block hover:bg-gray rounded-full border border-transparent px-8 py-2 font-bold uppercase transition-colors duration-300 hover:border-white/10'
               href={link}
             >
               {text}
@@ -23,3 +23,22 @@ import { navLinks } from '@/data/site-data'
     }
   </ul>
 </nav>
+
+<style>
+  #nav > ul {
+    transition:
+      opacity 200ms 100ms,
+      translate 300ms,
+      visibility 0s 300ms;
+  }
+
+  #nav.open > ul {
+    transition:
+      opacity 200ms,
+      translate 300ms 100ms,
+      visibility 0s 0s;
+    translate: 0 0;
+    opacity: 1;
+    visibility: visible;
+  }
+</style>
