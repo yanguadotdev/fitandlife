@@ -13,6 +13,8 @@
   --ease-bezier: cubic-bezier(0.9, 0.1, 0.1, 0.9);
 
   --text-big: clamp(2rem, 10vw, 10rem);
+  
+  --breakpoint-xs: 34rem;
 }
 
 @layer base {
