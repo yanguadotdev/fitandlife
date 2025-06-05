@@ -1,0 +1,36 @@
+---
+type SliderProps = {
+  direction?: 'toleft' | 'toright'
+}
+const { direction = 'toleft' }: SliderProps = Astro.props
+---
+
+<div
+  class='slider overflow-hidden whitespace-nowrap border leading-none border-white/15'
+  data-direction={direction}
+>
+  <div
+    class='sliderContent text-big inline-block whitespace-nowrap text-nowrap font-black uppercase px-8'
+  >
+    <div class='[&>span]:text-primary inline-flex gap-16'>
+      <span>4</span>clubs<span>45</span>min workout<span>20</span>activities
+    </div>
+  </div>
+</div>
+
+<script>
+  import { $, $$ } from '@/lib/dom-selector'
+
+  const sliders = $$('.slider') as NodeListOf<HTMLElement>
+
+  sliders.forEach((slider) => {
+    const direction = slider.dataset.direction
+    const sliderTrack = $('.sliderContent', slider) as HTMLElement
+    if (!sliderTrack) return
+
+    sliderTrack.classList.add('animate-marquee')
+    sliderTrack.style.animationDirection =
+      direction === 'toright' ? 'reverse' : ''
+    slider.appendChild(sliderTrack.cloneNode(true) as HTMLElement)
+  })
+</script>
