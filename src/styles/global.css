@@ -18,6 +18,7 @@
   --breakpoint-xxs: 25rem;
   --breakpoint-xs: 34rem;
   --breakpoint-2sm: 46rem;
+  --breakpoint-2lg: 70rem;
 
   --animate-marquee: marquee 20s linear infinite;
   @keyframes marquee {
@@ -94,6 +95,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+  scrollbar-gutter: stable;
   @apply bg-black;
 }
 

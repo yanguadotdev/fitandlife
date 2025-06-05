@@ -1,0 +1,39 @@
+---
+import { bonuses } from '@/data/site-data'
+import { cn } from '@/lib/utils'
+
+interface BonussProps {
+  className?: string
+}
+const { className }: BonussProps = Astro.props
+---
+
+<div class={cn('perspective-distant', className)}>
+  {
+    bonuses.map((bonus, i) => {
+      const { title, img: imgsrc, styles } = bonus
+
+      return (
+        <article
+          class={cn(
+            'w-full max-w-[340px] rounded-2xl bg-white text-black shadow-2xl transform-3d',
+            styles || '',
+          )}
+        >
+          <div class='p-4 pb-0'>
+            <h3 class='font-secondary text-balance text-2xl uppercase leading-none max-w-3xs 2lg:max-w-max'>
+              {title}
+            </h3>
+          </div>
+          <div class='h-50 my-4 w-full'>
+            <img src={imgsrc} class='size-full object-cover' alt='' />
+          </div>
+          <footer class='font-secondary flex items-center justify-between p-4 pt-0 uppercase'>
+            <span>{`${i + 1}`.padStart(2, '0')}</span>
+            <button class='text-primary'>MORE DETAILS [+]</button>
+          </footer>
+        </article>
+      )
+    })
+  }
+</div>

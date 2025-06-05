@@ -114,3 +114,25 @@ export const classes = [
     ],
   },
 ];
+
+
+export const bonuses = [
+  {
+    title: 'anual club card in installments',
+    img: '/images/bonuses/bonus1.webp',
+    styles: '2lg:-rotate-y-12'
+  },
+  {
+    title: 'logal system for regular customers',
+    img: '/images/bonuses/bonus3.webp'
+  },
+  {
+    title: '50% of trial personal training',
+    img: '/images/bonuses/bonus2.webp',
+    styles: '2lg:rotate-y-12'
+  },
+  {
+    title: 'installment classes suscription',
+    img: '/images/bonuses/bonus4.webp'
+  }
+]
