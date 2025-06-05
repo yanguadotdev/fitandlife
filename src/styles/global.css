@@ -14,7 +14,9 @@
 
   --text-big: clamp(2rem, 10vw, 10rem);
   
+  --breakpoint-xxs: 25rem;
   --breakpoint-xs: 34rem;
+  --breakpoint-2sm: 46rem;
 }
 
 @layer base {
