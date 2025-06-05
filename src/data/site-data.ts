@@ -51,7 +51,7 @@ export const classes = [
         membership: 'exclusive',
       },
       {
-        name: 'cicle',
+        name: 'cycle',
         goal: 'get stronger',
         duration: '45 mins',
         membership: 'exclusive',
@@ -62,8 +62,8 @@ export const classes = [
     category: 'group training',
     classesAvailable: [
       {
-        name: 'bootcamp',
-        goal: 'burn fat',
+        name: 'body shape',
+        goal: 'aesthetic body',
         duration: '50 mins',
         membership: 'all inclusive',
       },
