@@ -1,0 +1,41 @@
+---
+import { memberships } from "@/data/site-data";
+import { cn } from "@/lib/utils";
+---
+
+<section class="text-white py-40">
+  <header class="text-center mb-20">
+    <h2 class="text-big font-secondary leading-none">MEMBERSHIP</h2>
+  </header>
+
+  <ul class="grid grid-cols-1 sm:grid-cols-2 2lg:grid-cols-4 gap-8 px-4 max-w-7xl mx-auto">
+    {memberships.map(plan => (
+      <li>
+        <article class={cn('relative rounded-md overflow-hidden shadow-lg h-96 bg-gray', plan.id === 3 && 'bg-white text-gray')}>
+          <div class="absolute top-0 right-0 border-t-[60px] border-l-[60px] border-black border-l-primary" />
+
+          <div class="flex flex-col gap-4 h-full">
+            <div class="px-6 pt-8 pb-4 flex flex-col gap-4 h-max">
+              <div class="font-secondary">[{plan.id}]</div>
+              <h3 class="text-3xl font-secondary leading-none uppercase">{plan.name}</h3>
+            </div>
+
+              <ul class={cn("text-sm flex-1 flex flex-col gap-1 pt-6 border-t-2 border-white/10 px-6",  plan.id === 3 && 'border-gray/10')}>
+                {plan.features.map(feature => <li>+ {feature}</li>)}
+              </ul>
+
+            <!-- Price & Button -->
+            <div class=" flex h-20">
+              <p class={cn("text-4xl flex-1 flex items-center justify-center font-secondary leading-none border-t-2 border-t-white/10", plan.id === 3 && 'border-gray/10')}>
+                {plan.price}$<span class="text-sm font-normal">/month</span>
+              </p>
+              <button class="bg-primary text-3xl flex-1 transition text-white font-secondary flex items-center justify-center">
+                BUY <span class="font-primary">[+]</span>
+              </button>
+            </div>
+          </div>
+        </article>
+      </li>
+    ))}
+  </ul>
+</section>

@@ -136,3 +136,59 @@ export const bonuses = [
     img: '/images/bonuses/bonus4.webp'
   }
 ]
+
+
+export const memberships = [
+  {
+    id: 1,
+    name: "Middle",
+    price: 50,
+    currency: "$",
+    period: "month",
+    features: [
+      "Gym without trainer",
+      "Unlimited access",
+      "Access to all clubs"
+    ]
+  },
+  {
+    id: 2,
+    name: "Super",
+    price: 90,
+    currency: "$",
+    period: "month",
+    features: [
+      "Gym with trainer",
+      "Unlimited access",
+      "Access to all clubs",
+      "Training for some classes"
+    ]
+  },
+  {
+    id: 3,
+    name: "All Inclusive",
+    price: 120,
+    currency: "$",
+    period: "month",
+    features: [
+      "Gym with trainer",
+      "Unlimited access",
+      "Access to all clubs",
+      "Training for all classes"
+    ]
+  },
+  {
+    id: 4,
+    name: "Exclusive",
+    price: 150,
+    currency: "$",
+    period: "month",
+    features: [
+      "Gym with trainer",
+      "Unlimited access",
+      "Access to all clubs",
+      "Training for all classes",
+      "Exclusive studios"
+    ]
+  }
+];
