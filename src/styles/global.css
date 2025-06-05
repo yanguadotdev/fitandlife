@@ -13,7 +13,7 @@
 
   --ease-bezier: cubic-bezier(0.9, 0.1, 0.1, 0.9);
 
-  --text-big: clamp(2rem, 10vw, 10rem);
+  --text-big: clamp(2.5rem, 10vw, 12rem);
 
   --breakpoint-xxs: 25rem;
   --breakpoint-xs: 34rem;
@@ -100,5 +100,5 @@ body {
 }
 
 @utility mask-fade-center {
-  mask-image: radial-gradient(circle at center, black -80%, transparent 100%);
+  mask-image: radial-gradient(circle at center, black -100%, transparent 100%);
 }
