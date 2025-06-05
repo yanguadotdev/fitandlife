@@ -97,6 +97,6 @@ body {
   @apply bg-black;
 }
 
-@utility mask-fade-bottom {
-  mask-image: linear-gradient(to bottom, black 80%, transparent 100%);
+@utility mask-fade-center {
+  mask-image: radial-gradient(circle at center, black -80%, transparent 100%);
 }
