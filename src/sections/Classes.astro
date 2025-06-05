@@ -9,12 +9,14 @@ import { classes } from '@/data/site-data'
   <hr class='my-4 text-white/50' />
   <div class='container flex max-w-7xl flex-col gap-8 lg:flex-row'>
     <!-- DINAMIC IMAGE -->
-    <div class='relative hidden h-auto w-96 lg:block'>
+    <div
+      class='w-70 relative top-0 hidden h-96 shrink-0 rounded-2xl transition-all duration-300 lg:block shadow-2xl shadow-white/20'
+    >
       <img
         id='dinamicImage'
         src=''
         alt='class preview'
-        class='h-full w-full rounded-2xl object-cover opacity-0 transition-opacity duration-300'
+        class='size-full rounded-2xl object-cover transition-opacity duration-300'
       />
     </div>
 
@@ -64,12 +66,19 @@ import { classes } from '@/data/site-data'
   import { $, $$ } from '@/lib/dom-selector'
 
   const dinamicImage = $('#dinamicImage') as HTMLImageElement
+  const parentDinamicImage = dinamicImage.parentElement
   const listClasses = $$('#listClasses > li')
   listClasses.forEach((item) => {
     const dataSrcImage = item.dataset.imgsrc
+    let { top } = item.getBoundingClientRect()
+    top = top - listClasses[0].getBoundingClientRect().top
     item.addEventListener('mouseenter', (e) => {
       dinamicImage.src = dataSrcImage || ''
-      dinamicImage.classList.remove('opacity-0')
+      parentDinamicImage && (dinamicImage.parentElement.style.top = `${top}px`)
     })
   })
+
+  // When the page loads, the first image will be displayed
+  dinamicImage.src = listClasses[0].dataset.imgsrc || ''
+  parentDinamicImage && (dinamicImage.parentElement.style.top = '0')
 </script>
