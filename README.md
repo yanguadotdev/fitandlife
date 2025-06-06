@@ -1,48 +1,34 @@
-# Astro Starter Kit: Basics
+# 🏋️ FitandLife Membership Landing Page
 
-```sh
-pnpm create astro@latest -- --template basics
-```
+![preview de la landing page Fit and Life](https://fitandlife.vercel.app/og.jpg)
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/withastro/astro/tree/latest/examples/basics)
-[![Open with CodeSandbox](https://assets.codesandbox.io/github/button-edit-lime.svg)](https://codesandbox.io/p/sandbox/github/withastro/astro/tree/latest/examples/basics)
-[![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/withastro/astro?devcontainer_path=.devcontainer/basics/devcontainer.json)
+Este proyecto es una **landing page para planes de membresía de un gimnasio**, desarrollada con [Astro](https://astro.build/) y estilizada con [Tailwind CSS](https://tailwindcss.com/).
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📌 Descripción
 
-![just-the-basics](https://github.com/withastro/astro/assets/2244813/a0a5533c-a856-4198-8470-2d67b1d7c554)
+La landing está enfocada en presentar de manera clara, visualmente atractiva y responsiva las diferentes opciones de suscripción a un gimnasio premium. Contiene:
 
-## 🚀 Project Structure
+- Un encabezado destacado con el título “MEMBERSHIP”.
+- Cuatro tarjetas que representan los diferentes planes: **Middle, Super, All Inclusive y Exclusive**.
+- Cada tarjeta incluye características, precio mensual y un botón de compra.
+- Un diseño moderno con colores contrastantes y detalles llamativos como la esquina superior en color naranja.
 
-Inside of your Astro project, you'll see the following folders and files:
+## 🎨 Diseño e inspiración
 
-```text
-/
-├── public/
-│   └── favicon.svg
-├── src/
-│   ├── layouts/
-│   │   └── Layout.astro
-│   └── pages/
-│       └── index.astro
-└── package.json
-```
+El diseño está inspirado en el concepto visual del proyecto publicado en Behance:
 
-To learn more about the folder structure of an Astro project, refer to [our guide on project structure](https://docs.astro.build/en/basics/project-structure/).
+🔗 [Fit You - Premium Fitness Club (Concept) - Behance](https://www.behance.net/gallery/177047321/Fit-You-premium-fitness-club-(concept))
 
-## 🧞 Commands
+Todos los derechos del diseño original pertenecen a su autor/a. Este proyecto es una adaptación sin fines comerciales, creada con fines educativos y de práctica en desarrollo frontend.
 
-All commands are run from the root of the project, from a terminal:
+## 🛠️ Tecnologías usadas
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `pnpm install`             | Installs dependencies                            |
-| `pnpm dev`             | Starts local dev server at `localhost:4321`      |
-| `pnpm build`           | Build your production site to `./dist/`          |
-| `pnpm preview`         | Preview your build locally, before deploying     |
-| `pnpm astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `pnpm astro -- --help` | Get help using the Astro CLI                     |
+- **Astro** – Framework moderno para construir sitios web rápidos.
+- **Tailwind CSS** – Utilizado para aplicar estilos de forma eficiente con clases utilitarias.
+- **HTML semántico** – Uso de etiquetas como `section`, `header`, `article` y `ul` para mejorar accesibilidad y SEO.
 
-## 👀 Want to learn more?
+✍️ Autor
+Desarrollado por Yangua Samir — Diseñador y Frontend Developer.
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+Si te gustó este proyecto, no olvides dejar una estrella ⭐️ o compartirlo.
+Este código está disponible con fines educativos y de práctica personal.
